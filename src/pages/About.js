@@ -7,24 +7,32 @@ import dimas from "../assets/images/about-us/owner/dimas.jpg";
 import misnan from "../assets/images/about-us/owner/misnan.jpg";
 import rofif from "../assets/images/about-us/owner/rofif.jpg";
 
-// Variants container untuk stagger
+// Variants container dengan stagger
 const container = {
-  hidden: { opacity: 0 },
+  hidden: {},
   visible: {
-    opacity: 1,
     transition: {
-      staggerChildren: 0.3,
+      staggerChildren: 0.25,
     },
   },
 };
 
-// Variants anak (fadeInUp)
+// Variants fadeInUp untuk smooth scroll
 const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: "easeOut" },
+  hidden: { opacity: 0, y: 50 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.8, ease: "easeOut" } 
+  },
+};
+
+// Hover animation untuk cards
+const hoverCard = {
+  hover: {
+    scale: 1.05,
+    boxShadow: "0px 15px 30px rgba(0,0,0,0.3)",
+    transition: { duration: 0.3, ease: "easeOut" },
   },
 };
 
@@ -32,17 +40,26 @@ export default function About() {
   return (
     <div className="text-white">
       {/* Hero Section */}
-      <section
-        className="relative flex items-center justify-center min-h-[70vh] bg-cover bg-center"
-        style={{ backgroundImage: `url(${bgImage})` }}
-      >
+      <section className="relative flex items-center justify-center min-h-[70vh] overflow-hidden">
+        {/* Background Image dengan motion */}
+        <motion.div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${bgImage})` }}
+          initial={{ scale: 1 }}
+          whileInView={{ scale: 1.05 }} // zoom halus
+          transition={{ duration: 8, ease: "easeOut" }}
+        ></motion.div>
+
+        {/* Overlay gelap */}
         <div className="absolute inset-0 bg-black/60"></div>
 
+        {/* Text Content */}
         <motion.div
           className="relative z-10 text-center px-4"
           variants={container}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
         >
           <motion.h1
             className="text-3xl sm:text-4xl lg:text-5xl font-bold font-['Satoshi'] drop-shadow-lg"
@@ -109,54 +126,67 @@ export default function About() {
       </section>
 
       {/* Experience */}
-      <section className="bg-[#DAC5A7]/5 flex flex-col gap-3 py-10 px-6 sm:px-12 lg:px-64">
+      <section className="bg-[#DAC5A7]/5 flex flex-col gap-6 py-10 px-6 sm:px-12 lg:px-64">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="space-y-4"
+        >
+          <motion.div className="uppercase text-xs text-orange-200/60 font-['Satoshi'] tracking-wider" variants={fadeInUp}>
+            PT Satria Jaya Yudha
+          </motion.div>
+          <motion.h2 className="text-3xl sm:text-5xl text-orange-200 font-light leading-snug" variants={fadeInUp}>
+            Komitmen Kami dalam Memberikan Layanan Terbaik
+          </motion.h2>
 
-        <div className="justify-start text-orange-200/60 text-xs font-normal font-['Satoshi'] uppercase leading-tight tracking-wider">PT Satria Jaya Yudha</div>
+          {/* Cards Experience */}
+          <motion.div className="space-y-6" variants={fadeInUp}>
+            <div>
+              <h3 className="text-orange-200/60 font-semibold font-['Chillax']">5 Years of Experience</h3>
+              <p className="text-orange-200/60 font-normal font-['Chillax'] leading-7">
+                Dengan pengalaman lebih dari lima tahun di bidang Management Alih Daya, 
+                kami telah mengelola ribuan tenaga kerja yang tersebar di berbagai sektor industri. 
+                Pengalaman panjang ini menjadi bukti nyata komitmen kami dalam memberikan solusi tenaga kerja yang profesional, 
+                terpercaya, dan sesuai dengan kebutuhan mitra usaha.
+                Tidak hanya sekadar pengalaman waktu, 
+                perjalanan kami juga penuh dengan pembelajaran dan peningkatan kualitas manajemen. 
+                Setiap tantangan yang dihadapi menjadi fondasi kuat untuk terus berinovasi, 
+                sehingga kami mampu memberikan layanan yang lebih matang, terstruktur, 
+                dan berorientasi pada kepuasan klien.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-orange-200/60 font-semibold font-['Chillax']">Best Service Quality</h3>
+              <p className="text-orange-200/60 font-normal font-['Chillax'] leading-7">
+                Kami percaya bahwa kualitas layanan adalah kunci utama dalam membangun hubungan jangka panjang 
+                dengan setiap klien. Oleh karena itu, kami selalu tanggap dan cepat dalam menangani setiap keluhan, 
+                sekaligus berusaha memberikan solusi terbaik yang tepat sasaran.
+                Melalui langkah-langkah strategis yang terus kami kembangkan, 
+                kualitas pelayanan kami bukan hanya berfokus pada penyelesaian masalah, 
+                tetapi juga peningkatan berkelanjutan. Hal ini kami lakukan agar setiap 
+                mitra usaha merasakan kenyamanan, keamanan, dan nilai tambah dari layanan yang kami berikan.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-orange-200/60 font-semibold font-['Chillax']">Reasonable Price</h3>
+              <p className="text-orange-200/60 font-normal font-['Chillax'] leading-7">
+                Selain pengalaman dan kualitas, kami memahami bahwa faktor biaya menjadi 
+                pertimbangan penting bagi setiap perusahaan. Oleh karena itu, 
+                penawaran management fee kami dirancang secara fleksibel dan proporsional, 
+                menyesuaikan tingkat risiko, ruang lingkup pekerjaan, serta jumlah tenaga kerja yang dikelola.
+                Dengan pendekatan harga yang adil dan transparan, kami memastikan bahwa 
+                mitra usaha memperoleh layanan terbaik tanpa harus terbebani biaya yang berlebihan. 
+                Komitmen ini menjadi bagian dari upaya kami untuk menciptakan hubungan kerja sama
+              </p>
+            </div>
+          </motion.div>
 
-        <div className="self-stretch justify-start text-orange-200 text-5xl font-light font-['Satoshi'] leading-[52.80px]">
-          Komitmen Kami dalam Memberikan Layanan Terbaik
-        </div>
-
-        <div>
-          <div className="self-stretch justify-start text-orange-200/60 text-base font-semibold font-['Chillax'] leading-7">5 Years of Experience</div>
-          <div className="self-stretch justify-start text-orange-200/60 text-base font-normal font-['Chillax'] leading-7">
-            Dengan pengalaman lebih dari lima tahun di bidang Management Alih Daya, 
-            kami telah mengelola ribuan tenaga kerja yang tersebar di berbagai sektor industri. 
-            Pengalaman panjang ini menjadi bukti nyata komitmen kami dalam memberikan solusi tenaga kerja yang profesional, 
-            terpercaya, dan sesuai dengan kebutuhan mitra usaha.
-            Tidak hanya sekadar pengalaman waktu, 
-            perjalanan kami juga penuh dengan pembelajaran dan peningkatan kualitas manajemen. 
-            Setiap tantangan yang dihadapi menjadi fondasi kuat untuk terus berinovasi, 
-            sehingga kami mampu memberikan layanan yang lebih matang, terstruktur, 
-            dan berorientasi pada kepuasan klien.
-          </div>
-
-          <div className="self-stretch justify-start text-orange-200/60 text-base font-semibold font-['Chillax'] leading-7">Best Service Quality</div>
-          <div className="self-stretch justify-start text-orange-200/60 text-base font-normal font-['Chillax'] leading-7">
-            Kami percaya bahwa kualitas layanan adalah kunci utama dalam membangun hubungan jangka panjang 
-            dengan setiap klien. Oleh karena itu, kami selalu tanggap dan cepat dalam menangani setiap keluhan, 
-            sekaligus berusaha memberikan solusi terbaik yang tepat sasaran.
-            Melalui langkah-langkah strategis yang terus kami kembangkan, 
-            kualitas pelayanan kami bukan hanya berfokus pada penyelesaian masalah, 
-            tetapi juga peningkatan berkelanjutan. Hal ini kami lakukan agar setiap 
-            mitra usaha merasakan kenyamanan, keamanan, dan nilai tambah dari layanan yang kami berikan.
-          </div>
-
-          <div className="self-stretch justify-start text-orange-200/60 text-base font-semibold font-['Chillax'] leading-7">Reasonable Price</div>
-          <div className="self-stretch justify-start text-orange-200/60 text-base font-normal font-['Chillax'] leading-7">
-            Selain pengalaman dan kualitas, kami memahami bahwa faktor biaya menjadi 
-            pertimbangan penting bagi setiap perusahaan. Oleh karena itu, 
-            penawaran management fee kami dirancang secara fleksibel dan proporsional, 
-            menyesuaikan tingkat risiko, ruang lingkup pekerjaan, serta jumlah tenaga kerja yang dikelola.
-            Dengan pendekatan harga yang adil dan transparan, kami memastikan bahwa 
-            mitra usaha memperoleh layanan terbaik tanpa harus terbebani biaya yang berlebihan. 
-            Komitmen ini menjadi bagian dari upaya kami untuk menciptakan hubungan kerja sama 
-            yang saling menguntungkan dan berkelanjutan.
-          </div>
-        </div>
-
-        <h1 className="self-stretch text-center text-orange-200 text-3xl font-bold font-['Satoshi'] leading-[52.80px]">"Bersama Kita Bisa Cepat Tanggap Profesional"</h1>
-
+          <motion.h3 className="text-center text-orange-200 text-2xl sm:text-3xl font-bold font-['Satoshi'] mt-4" variants={fadeInUp}>
+            "Bersama Kita Bisa Cepat Tanggap Profesional"
+          </motion.h3>
+        </motion.div>
       </section>
 
       {/* Owner */}
