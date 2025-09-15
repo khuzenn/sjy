@@ -92,7 +92,7 @@ const cards = [
     {
         id: 3,
         title: "Reasonable Price",
-        desc: "Penarawan management fee yang relatif, tergantung dari tingkat besar kecilnya resiko, scope pekerjaanya, jumlah tenaga kerja yang dikelola dan juga melihat dari kemampuan perusahaan pengguna jasa..",
+        desc: "Penarawan management fee yang relatif, tergantung dari tingkat besar kecilnya resiko, scope pekerjaanya, jumlah tenaga kerja yang dikelola dan juga melihat dari kemampuan perusahaan pengguna jasa.",
     },
 ];
 
@@ -335,7 +335,7 @@ export default function Home() {
                  transition={{ duration: 0.8, ease: "easeOut" }} >
                     {/* Subtitle */}
                     <motion.h1
-                     className="text-sm font-semibold tracking-widest text-[#DAC5A7] uppercase relative inline-block"
+                     className="text-sm font-semibold tracking-widest text-[#DAC5A7] font-['Satoshi'] uppercase relative inline-block"
                      initial={{ opacity: 0, x: -40 }}
                      whileInView={{ opacity: 1, x: 0 }}
                      transition={{ duration: 0.6 }} >
@@ -345,7 +345,7 @@ export default function Home() {
 
                     {/* Title */}
                     <motion.h1
-                     className="text-white font-bold text-3xl sm:text-4xl lg:text-5xl mt-5"
+                     className="self-stretch justify-start text-orange-200 text-3xl font-semibold font-['Satoshi'] leading-[52.80px]"
                      initial={{ opacity: 0, x: 40 }}
                      whileInView={{ opacity: 1, x: 0 }}
                      transition={{ duration: 0.6, delay: 0.2 }} >
@@ -354,7 +354,7 @@ export default function Home() {
 
                     {/* Description */}
                     <motion.p
-                     className="[#DAC5A7]/60 text-sm sm:text-base lg:text-lg leading-relaxed mt-6 border-l-2 border-orange-500/20 pl-4"
+                     className="self-stretch justify-start text-orange-200/60 text-base font-normal font-['Chillax'] leading-7 border-l-2 border-orange-500/20 pl-4"
                      initial={{ opacity: 0 }}
                      whileInView={{ opacity: 1 }}
                      transition={{ duration: 0.8, delay: 0.4 }} >
@@ -378,23 +378,20 @@ export default function Home() {
             {/* Services */}
             <section className="flex flex-col px-4 sm:px-8 lg:px-56 py-12 lg:py-3">
                 <div className="text-center pb-6">
-                    <span className="text-[#DAC5A7] text-2xl font-light font-['Satoshi']">
-                        Our <br />
-                    </span>
-                    <span className="text-[#DAC5A7] text-2xl font-light font-['Gambetta']">
-                        Services
+                    <span className="text-2xl font-semibold font-['Satoshi'] leading-2">
+                        Our <br /> Services
                     </span>
                 </div>
 
                 {[
-                    "Butuh tenaga keamanan yang handal? Kami menghadirkan jasa satpam profesional untuk menjaga dan melindungi gedung, kantor, perusahaan, ruko, hotel, mall, apartemen, maupun properti lainnya. Dengan personel yang disiplin, ramah, serta terlatih menghadapi berbagai situasi, kami siap mendukung terciptanya suasana aman, tertib, dan kondusif di lingkungan Anda.",
-                    "Kami menyediakan jasa keamanan temporary dengan sistem kontrak yang fleksibel, baik harian maupun bulanan. Solusi ini sangat cocok untuk kebutuhan acara, proyek singkat, hingga penjagaan aset sementara. Dengan tenaga satpam terlatih dan profesional, kami memastikan keamanan tetap terjaga maksimal tanpa harus terikat kontrak jangka panjang.",
-                    "Layanan bodyguard pribadi yang dapat disesuaikan dengan kebutuhan Anda. Cocok untuk mendampingi kegiatan bisnis, perjalanan dinas, event khusus, hingga pengawalan VIP. Dengan sikap sigap, profesional, dan penuh dedikasi, kami pastikan keamanan Anda selalu prioritas utama.",
-                    "Tingkatkan kualitas sumber daya keamanan Anda dengan mengikuti pelatihan security bersama instruktur berpengalaman. Kami membekali peserta dengan keterampilan pengamanan modern, teknik pengendalian massa, serta etika pelayanan prima agar siap diterjunkan di berbagai bidang usaha maupun instansi.",
-                    "Jadikan acara Anda lebih lancar dan bebas dari gangguan dengan jasa pengamanan event profesional. Tim kami siap memberikan pengawasan ketat, pengendalian massa, hingga pengamanan VIP sehingga setiap momen berharga Anda berlangsung tanpa kendala.",
-                    "Dukung keamanan optimal dengan perlengkapan keamanan terbaik. Kami siap menyediakan berbagai kebutuhan, seperti seragam, alat komunikasi, hingga perlengkapan pendukung yang menunjang profesionalisme dan kinerja tim keamanan Anda.",
-                    "Butuh layanan pendukung yang serba lengkap? Kami hadir dengan solusi: cleaning service handal, driver berpengalaman, catering lezat dan higienis, tenaga harian lepas, hingga sistem borongan sesuai kebutuhan Anda. Semua tersedia dalam satu layanan terpercaya!",
-                    "Layanan kami tidak hanya standar, tetapi juga bersifat eksklusif, fleksibel, dan dapat disesuaikan sepenuhnya sesuai kebutuhan Anda, sehingga memberikan pengalaman layanan yang lebih personal dan memuaskan.",
+                    "Butuh tenaga keamanan handal? Kami menyediakan satpam profesional untuk melindungi gedung, kantor, hotel, apartemen, dan berbagai properti lainnya. Dengan personel disiplin, ramah, dan terlatih, kami siap menciptakan lingkungan yang aman, tertib, dan kondusif.",
+                    "Kami menyediakan jasa keamanan temporary dengan kontrak fleksibel harian atau bulanan. Cocok untuk acara, proyek singkat, hingga penjagaan aset sementara. Dengan satpam terlatih dan profesional, keamanan tetap terjaga tanpa kontrak jangka panjang.",
+                    "Kami menyediakan layanan bodyguard pribadi untuk bisnis, perjalanan, event, hingga pengawalan VIP. Dengan profesionalisme dan dedikasi tinggi, keamanan Anda adalah prioritas utama.",
+                    "Tingkatkan kualitas SDM keamanan melalui pelatihan bersama instruktur berpengalaman. Peserta dibekali keterampilan modern, teknik pengendalian massa, dan etika pelayanan prima untuk siap di berbagai bidang.",
+                    "Pastikan acara berjalan lancar dengan jasa pengamanan event profesional. Tim kami siap mengawasi, mengendalikan massa, dan mengamankan VIP agar momen berharga Anda bebas gangguan.",
+                    "Kami menyediakan seragam, alat komunikasi, dan perlengkapan pendukung untuk mendukung profesionalisme dan kinerja tim keamanan Anda.",
+                    "Kami menyediakan layanan pendukung lengkap: cleaning service, driver, catering, tenaga harian, hingga sistem borongan sesuai kebutuhan Anda.",
+                    "Layanan kami eksklusif, fleksibel, dan sepenuhnya dapat disesuaikan untuk pengalaman yang lebih personal dan memuaskan.",
                 ].map((text, index) => {
                     const isEven = index % 2 !== 0;
                     return (
@@ -411,7 +408,7 @@ export default function Home() {
                                      whileInView="visible"
                                      whileHover="hover"
                                      viewport={{ once: true }} >
-                                        <div className="text-[#DAC5A7]/60 text-sm sm:text-base leading-relaxed">
+                                        <div className="self-stretch justify-start text-orange-200/60 text-base font-normal font-['Chillax'] leading-7">
                                             {text}
                                         </div>
                                     </motion.div>
@@ -449,7 +446,7 @@ export default function Home() {
                                      whileInView="visible"
                                      whileHover="hover"
                                      viewport={{ once: true }} >
-                                        <div className="text-[#DAC5A7]/60 text-sm sm:text-base leading-relaxed">
+                                        <div className="self-stretch justify-start text-orange-200/60 text-base font-normal font-['Chillax'] leading-7">
                                             {text}
                                         </div>
                                     </motion.div>
@@ -487,12 +484,12 @@ export default function Home() {
                             </div>
 
                             {/* Title */}
-                            <h3 className="text-lg font-semibold text-[#DAC5A7] leading-snug">
+                            <h3 className="text-lg font-['Satoshi'] font-semibold text-[#DAC5A7] leading-snug">
                                 {item.title}
                             </h3>
 
                             {/* Text */}
-                            <p className="text-sm text-[#DAC5A7]/60 leading-relaxed">{item.text}</p>
+                            <p className="text-sm font-['Chillax'] text-[#DAC5A7]/60 leading-relaxed">{item.text}</p>
 
                             {/* User */}
                             <div className="flex items-center gap-3 pt-4">
